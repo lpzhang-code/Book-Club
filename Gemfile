@@ -24,6 +24,8 @@ gem 'bootstrap-sass'
 # Use Font Awesome for icon fonts
 gem 'font-awesome-rails'
 
+# Use Facebook for third party authentication
+gem 'omniauth-facebook'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

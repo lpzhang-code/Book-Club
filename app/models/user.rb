@@ -1,12 +1,10 @@
 class User < ApplicationRecord
-    def self.from_omniauth(auth)
-        where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-            user.provider = auth.provider
-            user.uid = auth.uid
-            user.name = auth.info.name
-            user.oauth_token = auth.credentials.token
-            user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-            user.save!
-        end
+    def self.from_omniauth(auth_hash)
+        user = find_or_create_by(uid: auth_hash['uid'])
+        user.name = auth_hash['info']['name']
+        user.image_url = auth_hash['info']['image']
+        user.url = auth_hash['info']['urls']['Facebook']
+        user.save!
+        user
     end
 end

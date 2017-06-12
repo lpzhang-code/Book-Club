@@ -13,13 +13,25 @@
                 <a class="navbar-brand">The Book Club</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><%= fa_icon "home 2x" %></a></li>
-                <li><a href="#"><%= fa_icon "users 2x" %></a></li>
-                <li><a href="#"><%= fa_icon "question-circle 2x" %></a></li>
+                <li><%= link_to (fa_icon "home 2x"), root_path %></li>
+                <li><%= link_to (fa_icon "users 2x"), '#' %></li>
+                <li><%= link_to (fa_icon "question-circle 2x"), '#' %></li>
+                <% if current_user %>
+                <li><%= link_to (fa_icon "sign-out 2x"), logout_path, method: :delete %></li>
+                <% else %>
+                <li><%= link_to (fa_icon "sign-in 2x"), '/auth/facebook' %></li>
+                <% end %>
             </ul>
         </div>
     </nav>
   <body>
+    <div class="container">
+        <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>">
+            <%= value %>
+        </div>
+        <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>

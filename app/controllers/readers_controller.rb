@@ -1,2 +1,0 @@
-class ReadersController < ApplicationController
-end
