@@ -6,7 +6,6 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
   </head>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -14,9 +13,9 @@
                 <a class="navbar-brand">The Book Club</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><i class="fa fa-home fa-2x"></i></a></li>
-                <li><a href="#"><i class="fa fa-users fa-2x"></i></a></li>
-                <li><a href="#"><i class="fa fa-question-circle fa-2x"></i></a></li>
+                <li><a href="#"><%= fa_icon "home 2x" %></a></li>
+                <li><a href="#"><%= fa_icon "users 2x" %></a></li>
+                <li><a href="#"><%= fa_icon "question-circle 2x" %></a></li>
             </ul>
         </div>
     </nav>
