@@ -1,17 +1,16 @@
 <% if current_user %>
-  <div class="page-header">
-    <h1>Here is some info about you...</h1>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-body">
-        <%= image_tag current_user.image_url, alt: current_user.name %>
-      <ul>
-        <li><strong>Name:</strong> <%= current_user.name %></li>
-        <li><strong>uID:</strong> <%= current_user.uid %></li>
-        <li><strong>Facebook Profile</strong> <%= current_user.url %></li>
-      </ul>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h4><%= current_user.name %></h4>
+            <%= image_tag current_user.image_url, class: "img-thumbnail", alt: current_user.name %>
+        </div>
+        <div class="col-md-8">
+            <h4>New Recommendations</h4>
+        </div>
     </div>
-  </div>
+</div>
 <% else %>
   <%= render 'welcome' %>
 <% end %>
