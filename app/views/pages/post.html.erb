@@ -1,13 +1,19 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4 col-sm-4">
             <h4>Thoughts</h4>
             <%= form_for(current_user, url: "/thoughts") do |f| %>
-                <%= f.text_area :thoughts, size: "50x10" %>
+                <%= f.text_area :thoughts, :rows => 10, style: 'width:100%;' %>
                 <%= f.submit "Save" %>
             <% end %>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-8 col-sm-8">
+            <h4>New Recommendation</h4>
+            <%= form_tag("/books", method: "post") do %>
+                <%= label_tag(:q, "Search books:") %>
+                <%= text_field_tag(:q) %>
+                <%= submit_tag("Search") %>
+            <% end %>
         </div>
     </div>
 </div>

@@ -23,6 +23,9 @@ gem 'coffee-rails', '~> 4.2'
 gem 'bootstrap-sass'
 # Use Font Awesome for icon fonts
 gem 'font-awesome-rails'
+# Use Google Books for Content
+gem 'googlebooks'
+gem 'httparty'
 
 # Use Facebook for third party authentication
 gem 'omniauth-facebook'
