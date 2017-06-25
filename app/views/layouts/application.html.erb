@@ -15,8 +15,8 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><%= link_to (fa_icon "home 2x"), root_path %></li>
                 <li><%= link_to (fa_icon "globe 2x"), '#' %></li>
-                <li><%= link_to (fa_icon "user 2x"), '#' %></li>
                 <% if current_user %>
+                    <li><%= link_to (fa_icon "user 2x"), post_path %></li>
                     <li><%= link_to (fa_icon "sign-out 2x"), logout_path, method: :delete %></li>
                 <% else %>
                     <li><%= link_to (fa_icon "facebook 2x"), '/auth/facebook' %></li>

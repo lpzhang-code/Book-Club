@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <h4>Thoughts</h4>
+            <%= form_for(current_user, url: "/thoughts") do |f| %>
+                <%= f.text_area :thoughts, size: "50x10" %>
+                <%= f.submit "Save" %>
+            <% end %>
+        </div>
+        <div class="col-md-9">
+        </div>
+    </div>
+</div>
+
