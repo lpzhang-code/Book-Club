@@ -3,8 +3,7 @@ class EntryController < ApplicationController
         current_user.update_attributes(thoughts: params[:user][:thoughts])
     end
     
-    def books
-        books = GoogleBooks.search(params[:q], {count: 5})
-        puts books.class
+    def book
+        puts params[:title]
     end
 end

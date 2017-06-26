@@ -1,18 +1,28 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-sm-4">
-            <h4>Thoughts</h4>
+            <h3>Thoughts</h3>
             <%= form_for(current_user, url: "/thoughts") do |f| %>
                 <%= f.text_area :thoughts, :rows => 10, style: 'width:100%;' %>
                 <%= f.submit "Save" %>
             <% end %>
         </div>
         <div class="col-md-8 col-sm-8">
-            <h4>New Recommendation</h4>
-            <%= form_tag("/books", method: "post") do %>
+            <h3>New Recommendation</h3>
+            <%= form_tag("/post", method: "post") do %>
                 <%= label_tag(:q, "Search books:") %>
                 <%= text_field_tag(:q) %>
                 <%= submit_tag("Search") %>
+            <% end %>
+            <% if @books %>
+                <% @books.each do |book| %>
+                    <%= form_tag("/book", method: "post") do %>
+            <h5><%= book.title %><small> | <%= book.authors %></small></h5>
+                        <%= radio_button_tag(:title, book.title) %>
+                        <%= image_tag(book.image_link) %>
+                        <%= submit_tag("Select") %>
+                    <% end %>
+                <% end %>
             <% end %>
         </div>
     </div>
