@@ -1,0 +1,16 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h4>Our Readers</h4>
+        </div>
+        <div class="col-md-8">
+            <h4>Latest Recommendations</h4>
+                <% @books.each do |book| %>
+                    <%= image_tag(book.image) if book.image %>
+                    <h4><%= link_to(book.title, book.info) %><small> by <%= book.author %></small></h4>
+                        <p><%= link_to(book.user.name, '#') %> recommends this <%= book.pages %> page work</p>
+                <% end %>
+        </div>
+    </div>
+</div>

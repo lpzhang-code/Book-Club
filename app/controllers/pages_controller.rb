@@ -7,4 +7,8 @@ class PagesController < ApplicationController
             @books = GoogleBooks.search(params[:q], {count: 5})
         end
     end
+    
+    def explore
+        @books = Book.take(5)
+    end
 end

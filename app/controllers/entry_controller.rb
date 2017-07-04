@@ -7,11 +7,11 @@ class EntryController < ApplicationController
     
     def book
         if params[:title] == nil
-            flash[:warning] = "Please also check the box!"
+            flash[:warning] = "Check the book before you select!"
         else
             @books = GoogleBooks.search(params[:title], {count: 1})
             @books.each do |book|
-                Book.create(title: book.title, author: book.authors, pages: book.page_count, info: book.info_link, rating: book.ratings_count, user: current_user)
+                current_user.books.create(title: book.title, author: book.authors, pages: book.page_count, info: book.info_link, image: book.image_link, rating: book.ratings_count)
             end
             flash[:success] = "Selection Recommended!"
         end
