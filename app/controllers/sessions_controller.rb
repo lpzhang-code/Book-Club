@@ -12,7 +12,6 @@ class SessionsController < ApplicationController
     def destroy
         if session[:user_id] != nil
             session.delete(:user_id)
-            flash[:success] = 'Bye bye!'
             redirect_to root_path
         end
     end

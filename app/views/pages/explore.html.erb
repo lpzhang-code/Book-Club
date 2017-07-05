@@ -4,12 +4,12 @@
         <div class="col-md-4">
             <h4>Our Readers</h4>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-5">
             <h4>Latest Recommendations</h4>
                 <% @books.each do |book| %>
-                    <%= image_tag(book.image) if book.image %>
-                    <h4><%= link_to(book.title, book.info) %><small> by <%= book.author %></small></h4>
-                        <p><%= link_to(book.user.name, '#') %> recommends this <%= book.pages %> page work</p>
+                    <h5><%= link_to(book.title, book.info) %> by <%= book.author %></h5>
+                        <%= image_tag(book.image) if book.image %>
+                        <p><%= link_to(book.user.name, '#') %> recommends this <%= book.pages %> page volume</p><br>
                 <% end %>
         </div>
     </div>

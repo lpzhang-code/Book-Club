@@ -26,7 +26,8 @@ gem 'font-awesome-rails'
 # Use Google Books for Content
 gem 'googlebooks'
 gem 'httparty'
-
+# Use faker gem to seed database
+gem 'faker'
 # Use Facebook for third party authentication
 gem 'omniauth-facebook'
 # Use jquery as the JavaScript library
