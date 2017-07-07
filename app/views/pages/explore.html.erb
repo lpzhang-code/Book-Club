@@ -3,6 +3,11 @@
     <div class="row">
         <div class="col-md-4">
             <h4>Our Readers</h4>
+            <% @users.each do |user| %>
+            <h6><%= user.name %></h6>
+            <%= image_tag(user.image_url) %>
+            <% end %>
+            <%= will_paginate @users %>
         </div>
         <div class="col-md-5">
             <h4>Latest Recommendations</h4>

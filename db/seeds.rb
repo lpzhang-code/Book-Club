@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-20.times do |n|
+7.times do |n|
     uid = Faker::Number.number(10)
     name = Faker::Name.name
     email = "example-#{n+1}@railstutorial.org"
@@ -21,7 +21,7 @@ end
 @users.each do |user|
     1.times do
         title = Faker::Book.title
-        @books = GoogleBooks.search(title, {count: 3})
+        @books = GoogleBooks.search(title, {count: 1})
         @books.each do |book|
             user.books.create(title: book.title, author: book.authors, pages: book.page_count, info: book.info_link, image: book.image_link, rating: book.ratings_count)
         end
