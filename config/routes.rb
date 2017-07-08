@@ -12,4 +12,6 @@ Rails.application.routes.draw do
     post '/book', to: 'entry#book'
     # explore for users and book recommendations
     get '/explore', to: 'pages#explore'
+    # page for individual users
+    get '/user/:id', to: 'pages#user', as: 'user'
 end

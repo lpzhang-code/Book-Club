@@ -1,0 +1,17 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h4><%= @user.name %></h4>
+            <%= image_tag(@user.image_url) %>
+            <p><%= @user.thoughts %></p>
+        </div>
+        <div class="col-md-5">
+            <% @books.each do |book| %>
+                <h5><%= link_to(book.title, book.info) %> by <%= book.author %></h5>
+                <%= image_tag(book.image) if book.image %>
+            <% end %><br>
+            <%= will_paginate @books %>
+        </div>
+    </div>
+</div>

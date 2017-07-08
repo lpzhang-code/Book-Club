@@ -9,7 +9,12 @@ class PagesController < ApplicationController
     end
     
     def explore
-        @books = Book.take(5)
+        @books = Book.take(4)
         @users = User.paginate(page: params[:page], per_page: 6)
+    end
+    
+    def user
+        @user = User.find(params[:id])
+        @books = @user.books.paginate(page: params[:page], per_page: 4)
     end
 end

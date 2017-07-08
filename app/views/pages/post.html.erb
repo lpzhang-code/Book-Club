@@ -4,14 +4,14 @@
             <h4>Thoughts</h4>
             <%= form_for(current_user, url: "/thoughts") do |f| %>
                 <%= f.text_area :thoughts, size: "35x10" %>
-                <%= f.submit "Save" %>
+                <%= f.submit "Save", class: "btn btn-primary" %>
             <% end %>
         </div>
         <div class="col-md-8 col-sm-8">
             <h4>Recommend Books</h4>
             <%= form_tag("/post", method: "post") do %>
                 <%= text_field_tag(:q) %>
-                <%= submit_tag("Search") %>
+                <%= submit_tag("Search", class: "btn btn-info") %>
             <% end %>
             <% if @books %>
                 <%= form_tag("/book", method: "post") do %>
@@ -20,7 +20,7 @@
                         <%= radio_button_tag(:title, book.title) %>
                         <%= image_tag(book.image_link) if book.image_link %>
                     <% end %>
-                <br><br><%= submit_tag("Select") %>
+                <br><br><%= submit_tag("Post", class: "btn btn-primary") %>
                 <% end %>
             <% end %>
         </div>

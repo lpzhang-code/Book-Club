@@ -12,14 +12,14 @@
     email = "example-#{n+1}@railstutorial.org"
     gravatar_id = Digest::MD5::hexdigest(email.downcase)
     gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}"
-    thoughts = Faker::Lorem.sentence(3)
+    thoughts = Faker::Lorem.sentences
     User.create(uid: uid, name: name, image_url: gravatar_url, thoughts: thoughts)
 end
 
 @users = User.all
 
 @users.each do |user|
-    1.times do
+    2.times do
         title = Faker::Book.title
         @books = GoogleBooks.search(title, {count: 1})
         @books.each do |book|
