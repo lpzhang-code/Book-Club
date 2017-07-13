@@ -1,11 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
+# seed database with users
 7.times do |n|
     uid = Faker::Number.number(10)
     name = Faker::Name.name
@@ -16,6 +9,7 @@
     User.create(uid: uid, name: name, image_url: gravatar_url, thoughts: thoughts)
 end
 
+# seed database with user recommendations
 @users = User.all
 
 @users.each do |user|
@@ -25,5 +19,16 @@ end
         @books.each do |book|
             user.books.create(title: book.title, author: book.authors, pages: book.page_count, info: book.info_link, image: book.image_link, rating: book.ratings_count)
         end
+    end
+end
+
+# seed database with user relationships, i.e. A follows B
+@follower = User.all
+@followed = User.all
+
+@follower.each do |follower|
+    @followed.each do |followed|
+        next if follower.id == followed.id or follower.following.include?(followed)
+        follower.following << followed
     end
 end

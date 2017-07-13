@@ -17,4 +17,16 @@ class EntryController < ApplicationController
         end
         redirect_to root_path
     end
+    
+    def relationships
+        followed = User.find_by(id: params[:followed_id])
+        if request.post?
+            current_user.following << followed
+            flash[:success] = "Now following #{followed.name}"
+        else
+            current_user.following.delete(followed)
+            flash[:success] = "No longer following #{followed.name}"
+        end
+        redirect_to root_path
+    end
 end
