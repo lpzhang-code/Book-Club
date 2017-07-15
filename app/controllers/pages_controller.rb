@@ -1,5 +1,9 @@
 class PagesController < ApplicationController
     def index
+        if current_user
+            following_ids = current_user.following_ids
+            @books = Book.where("user_id IN(?)", following_ids).paginate(page: params[:page], per_page: 6)
+        end
     end
     
     def post

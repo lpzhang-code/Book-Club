@@ -1,11 +1,10 @@
-
 <div class="container">
     <div class="row">
         <div class="col-md-4">
             <h4>Our Readers</h4>
             <% @users.each do |user| %>
             <h6><%= link_to(user.name, user_path(user)) %></h6>
-            <%= image_tag(user.image_url) %>
+            <%= image_tag(user.image_url, class: "img-rounded") %><br>
             <% end %><br>
             <%= will_paginate @users %>
         </div>

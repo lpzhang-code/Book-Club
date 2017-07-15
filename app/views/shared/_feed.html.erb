@@ -1,0 +1,6 @@
+<% if @books %>
+<% @books.each do |book| %>
+    <h5><%= link_to(book.title, book.info) %> by <%= book.author %></h5><%= image_tag(book.image) if book.image %>
+    <% end %><br>
+<%= will_paginate @books %>
+<% end %>
