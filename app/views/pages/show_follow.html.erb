@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h4><%= @user.name %></h4>
+            <%= image_tag(@user.image_url, class: "img-rounded") %><br>
+            <p><%= link_to("Back to profile", @user) %></p>
+                <% if @users.any? %>
+                    <div class="users_avatars">
+                        <% @users.each do |user| %>
+                            <%= link_to(image_tag(user.image_url, size: "50"), user) %>
+                        <% end %>
+                    </div>
+                <% end %>
+        </div>
+        <div class="col-md-8">
+            <h4><%= @title %></h4>
+            <% if @users %>
+                <% @users.each do |user| %><div>
+            <h5><%= link_to(user.name, user) %></h5><%= image_tag(user.image_url)%></div>
+                <% end %><br>
+            <% end %>
+        </div>
+    </div>
+</div>
