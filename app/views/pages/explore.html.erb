@@ -1,20 +1,16 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 col-sm-4">
             <h4>Our Readers</h4>
             <% @users.each do |user| %>
-            <h6><%= link_to(user.name, user_path(user)) %></h6>
-            <%= image_tag(user.image_url, class: "img-rounded") %><br>
+                <h6><%= link_to(user.name, user) %></h6>
+                <%= image_tag(user.image_url, class: "img-rounded") %>
             <% end %><br>
             <%= will_paginate @users %>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-8 col-sm-8">
             <h4>Latest Recommendations</h4>
-                <% @books.each do |book| %>
-                    <h5><%= link_to(book.title, book.info) %> by <%= book.author %></h5>
-                        <%= image_tag(book.image) if book.image %>
-                        <p><%= link_to(book.user.name, user_path(book.user)) %> recommends this <%= book.pages %> page volume</p><br>
-                <% end %><br>
-        </div>
+            <%= render 'shared/book' %>
+        </div><br>
     </div>
 </div>

@@ -1,0 +1,6 @@
+<% @books.each do |book| %>
+    <div>
+        <span><%= image_tag(book.image, class: "img-rounded") if book.image %></span>
+        <span><%= link_to(book.title, book.info, class: "book-title") %> | <%= book.author %><br> Recommended by <%= link_to(book.user.name, book.user) %></span>
+    </div><br>
+<% end %>

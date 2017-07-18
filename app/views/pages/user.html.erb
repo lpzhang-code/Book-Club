@@ -1,11 +1,20 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 col-sm-4">
             <%= render 'shared/intro' %>
             <%= render 'shared/toggle' if current_user %>
         </div>
-        <div class="col-md-5">
-            <%= render 'shared/feed' %>
+        <div class="col-md-8 col-sm-8">
+            <h4>Recommendations</h4>
+            <% if @books %>
+                <% @books.each do |book| %>
+            <div>
+        <span><%= image_tag(book.image, class: "img-rounded") if book.image %></span>
+        <span><%= link_to(book.title, book.info, class: "book-title") %> | <%= book.author %></span>
+            </div><br>
+                <% end %>
+                <%= will_paginate @books %>
+            <% end %>
         </div>
     </div>
 </div>
