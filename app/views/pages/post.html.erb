@@ -2,19 +2,19 @@
     <div class="row">
         <div class="col-md-4 col-sm-4">
             <h4>Thoughts</h4>
-            <%= form_for(current_user, url: "/thoughts") do |f| %>
-                <%= f.text_area :thoughts, size: "35x10" %>
+            <%= form_for(current_user, url: "/thoughts", class: "form-group") do |f| %>
+                <%= f.text_area :thoughts, size: "35x10", class: "form-control" %><br>
                 <%= f.submit "Save", class: "btn btn-primary" %>
             <% end %>
         </div>
         <div class="col-md-8 col-sm-8">
             <h4>Recommend Books</h4>
-            <%= form_tag("/post", method: "post") do %>
+            <%= form_tag("/post", method: "post", class: "form-group") do %>
                 <%= text_field_tag(:q) %>
                 <%= submit_tag("Search", class: "btn btn-info") %>
             <% end %>
             <% if @books %>
-                <%= form_tag("/book", method: "post") do %>
+                <%= form_tag("/book", method: "post", class: "form-group") do %>
                     <% @books.each do |book| %>
                         <h5><%= book.title %><small> | <%= book.authors %></small></h5>
                         <%= radio_button_tag(:title, book.title) %>

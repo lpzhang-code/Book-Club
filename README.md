@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+We love books because they inspire, entertain, and educate us.
 
-Things you may want to cover:
+The Book Club is an application built using Rails for voracious readers to log on via Facebook and recommend their favourite works through Google Books.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Users can follow the recommendations of their fellow readers, post their thoughts, and browse the membership and interests of the entire readership.
